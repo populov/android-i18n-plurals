@@ -38,7 +38,7 @@ public class PluralRules_Polish extends PluralRules
 		{
 			return QUANTITY_ONE;
 		}
-		else if (rem10 >= 2 && rem10 <= 4 && !(rem100 >= 12 && rem100 <= 14) && !(rem100 >= 22 && rem100 <= 24))
+        else if (rem10 >= 2 && rem10 <= 4 && !(rem100 >= 12 && rem100 <= 14))
 		{
 			return QUANTITY_FEW;
 		}
