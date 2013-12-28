@@ -2,6 +2,9 @@
 <resources>
 
     <string name="app_name">попугай</string>
+    <string name="select_language">Выберите язык</string>
+    <string name="before">До</string>
+    <string name="after">После</string>
 
 	<plurals name="parrot_count">
     	<item quantity="one">%d попугай</item>

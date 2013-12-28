@@ -1,9 +1,10 @@
-package com.test.plurals;
+package com.seppius.plurals.test;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
 import com.seppius.i18n.plurals.PluralResources;
+import com.test.plurals.R;
 
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -24,7 +25,7 @@ public class TestPluralsActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        selectLanguage(getBaseContext().getResources().getConfiguration().locale.getLanguage());
+        selectLanguage(Locale.getDefault().getLanguage());
         
         class LanguageDesciptor
         {
@@ -41,7 +42,7 @@ public class TestPluralsActivity extends Activity
             {
                 return name + " (" + code + ")";
             }
-        };
+        }
         
         final ArrayList<LanguageDesciptor> languages = new ArrayList<LanguageDesciptor>();
         languages.add( new LanguageDesciptor("English"    , "en") );  // PluralRules_One
@@ -56,7 +57,7 @@ public class TestPluralsActivity extends Activity
         //languages.add( new LanguageDesciptor("Arabic"     , "ar") );  // PluralRules_Arabic
         
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<LanguageDesciptor> adapter = new ArrayAdapter<LanguageDesciptor>(this, android.R.layout.simple_spinner_item, languages.toArray(new LanguageDesciptor [0]));
+        ArrayAdapter<LanguageDesciptor> adapter = new ArrayAdapter<LanguageDesciptor>(this, android.R.layout.simple_spinner_item, languages.toArray(new LanguageDesciptor [languages.size()]));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         
@@ -81,7 +82,7 @@ public class TestPluralsActivity extends Activity
     private void selectLanguage( String language  ) 
     {
         Configuration config = getResources().getConfiguration();
-        
+
         Locale locale = new Locale(language);
         Locale.setDefault(locale);
         config.locale = locale;
@@ -90,7 +91,7 @@ public class TestPluralsActivity extends Activity
         StringBuilder text_after = new StringBuilder();
         StringBuilder text_before = new StringBuilder();
         	
-        PluralResources plural_resources = null; 
+        PluralResources plural_resources;
         try 
         {
         	plural_resources = new PluralResources(getResources());
@@ -99,12 +100,14 @@ public class TestPluralsActivity extends Activity
         {
         	Log.e("", "result:" + e );
         	e.printStackTrace();
+            return;
         } 
         catch (NoSuchMethodException e) 
         {
         	Log.e("", "result:" + e );
         	e.printStackTrace();
-        } 
+            return;
+        }
 
         for ( int i = 0; i <= TESTS_COUNT; i++ ) 
         {
