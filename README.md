@@ -104,7 +104,7 @@ The easyest way to use - you don't need to build project yourself, just add a fe
 
     ```groovy
     dependencies {
-        compile 'com.seppius.plurals:android-i18n-plurals:1.0'
+        compile 'com.seppius.plurals:android-i18n-plurals:1.+'
         ...
     }
     ```
