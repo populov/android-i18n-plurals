@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">попугай</string>
+
+	<plurals name="parrot_count">
+    	<item quantity="one">%d попугай</item>
+    	<item quantity="few">%d попугая</item>
+    	<item quantity="many">%d попугаев</item>
+    	<item quantity="other">%d попугаев</item>
+	</plurals>
+    
+</resources>

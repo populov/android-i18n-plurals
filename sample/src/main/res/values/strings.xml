@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">parrots</string>
+    <string name="select_language">Select language</string>
+    <string name="before">Before</string>
+    <string name="after">After</string>
+    
+	<plurals name="parrot_count">
+    	<item quantity="zero">No parrots</item>
+    	<item quantity="one">%d parrot (one)</item>
+    	<item quantity="two">%d parrots (two)</item>
+    	<item quantity="few">%d parrots (few)</item>
+    	<item quantity="many">%d parrots (many)</item>
+    	<item quantity="other">%d parrots (other)</item>
+	</plurals>
+    
+</resources>
