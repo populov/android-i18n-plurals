@@ -19,13 +19,27 @@ android {
     buildToolsVersion '19.0.0'
 }
 
-// Publish to maven
+// Publish to maven repository
 apply plugin: 'maven'
+
+task sourcesJar(type: Jar) {
+    classifier 'sources'
+    from android.sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
 
 uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: "file://$buildDir/mvnRepo/")
+/*
+            repository(url: "${bintray_api_base_url}/maven/${bintray_org}/${bintray_repo}/${bintray_package}") {
+                authentication(userName: bintray_username, password: bintray_api_key)
+            }
+*/
             pom.project {
                 artifactId 'android-i18n-plurals'
                 name 'android-i18n-plurals'
