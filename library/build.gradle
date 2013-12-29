@@ -22,12 +22,17 @@ android {
 // Publish to maven repository
 apply plugin: 'maven'
 
+task libJar(type: Jar) {
+    from fileTree(dir: 'build/classes/release')
+}
+
 task sourcesJar(type: Jar) {
     classifier 'sources'
     from android.sourceSets.main.allSource
 }
 
 artifacts {
+    archives libJar
     archives sourcesJar
 }
 

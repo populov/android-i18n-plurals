@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import com.seppius.i18n.plurals.PluralResources;
-import com.test.plurals.R;
 
 import android.app.Activity;
 import android.content.res.Configuration;
