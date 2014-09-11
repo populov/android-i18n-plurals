@@ -8,7 +8,6 @@
     <uses-sdk android:minSdkVersion="7" />
 
     <application
-        android:label="Plurals"
         tools:ignore="AllowBackup">
     </application>
 

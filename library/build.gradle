@@ -6,17 +6,17 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.+'
+        classpath 'com.android.tools.build:gradle:0.12.2'
     }
 }
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 
 dependencies {
 }
 
 android {
     compileSdkVersion 19
-    buildToolsVersion '19.0.0'
+    buildToolsVersion '19.1.0'
 }
 
 // Publish to maven repository
@@ -28,7 +28,7 @@ task libJar(type: Jar) {
 
 task sourcesJar(type: Jar) {
     classifier 'sources'
-    from android.sourceSets.main.allSource
+    from android.sourceSets.main.java.srcDirs
 }
 
 artifacts {
@@ -46,21 +46,29 @@ uploadArchives {
             }
 */
             pom.project {
-                artifactId 'android-i18n-plurals'
-                name 'android-i18n-plurals'
-                packaging 'jar'
-                description 'Alternative handling of Android Quantity Strings (Plurals)'
+                artifactId = 'android-i18n-plurals'
+                name = 'android-i18n-plurals'
+                packaging = 'jar'
+                description = 'Alternative handling of Android Quantity Strings (Plurals)'
                 url 'https://code.google.com/p/android-i18n-plurals/'
 
+                scm {
+                    url 'git:git@github.com:populov/android-i18n-plurals.git'
+                    connection 'scm:git:git@github.com:populov/android-i18n-plurals.git'
+                    developerConnection 'scm:git:git@github.com:populov/android-i18n-plurals.git'
+                }
+
+/*
                 scm {
                     url 'https://code.google.com/p/android-i18n-plurals/source'
                     connection 'http://android-i18n-plurals.googlecode.com/svn/trunk/'
                     developerConnection 'http://android-i18n-plurals.googlecode.com/svn/trunk/'
                 }
+*/
 
                 licenses {
                     license {
-                        name 'The MIT License (MIT)'
+                        name = 'The MIT License (MIT)'
                         url 'http://opensource.org/licenses/MIT'
                         distribution 'repo'
                     }
@@ -69,7 +77,7 @@ uploadArchives {
                 developers {
                     developer {
                         id 'MarinaSeppius'
-                        name 'Marina Seppius'
+                        name = 'Marina Seppius'
                         email 'MarinaSeppius@gmail.com'
                     }
                 }
