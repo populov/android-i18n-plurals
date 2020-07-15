@@ -49,7 +49,7 @@ public class PluralRules_Balkan extends PluralRules
 		{
 			return QUANTITY_FEW;
 		}
-		else if ((rem10 == 0 || (rem10 >= 5 && rem10 <= 9) || (rem100 >= 11 && rem100 <= 14)))
+		else if (rem10 == 0 || (rem10 >= 5 && rem10 <= 9) || (rem100 >= 11 && rem100 <= 14))
 		{
 			return QUANTITY_MANY;
 		}
